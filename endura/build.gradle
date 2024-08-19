@@ -27,3 +27,10 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+    // Main class to be specified for a runnable JAR
+    manifest {
+        attributes 'Main-Class': 'com.helios.endura.DemoApplication'
+    }
+}
