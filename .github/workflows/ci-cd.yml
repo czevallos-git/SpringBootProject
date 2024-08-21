@@ -26,17 +26,25 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-gradle-${{ hashFiles('endura/**/*.gradle*', 'endura/**/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
 
+    - name: List files in the endura directory with permissions
+      run: ls -l endura
+
+    - name: Print working directory
+      run: pwd
+
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x endura/gradlew
 
     - name: Build with Gradle
+      working-directory: ./endura
       run: ./gradlew build --no-daemon
-
+      
     - name: Run unit tests
+      working-directory: ./endura
       run: ./gradlew test --no-daemon
 
   deploy:
