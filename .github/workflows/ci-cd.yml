@@ -40,12 +40,13 @@ jobs:
       run: chmod +x endura/gradlew
 
     - name: Build with Gradle
-      run: ./endura/gradlew build --no-daemon
-      working-directory: endura
+      working-directory: ./endura
+      run: ./gradlew build --no-daemon
+      
 
     - name: Run unit tests
+      working-directory: ./endura
       run: ./endura/gradlew test --no-daemon
-      working-directory: endura
 
   deploy:
     runs-on: ubuntu-latest
