@@ -30,6 +30,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
+    - name: List files in repository
+      run: ls -R
+
     - name: Grant execute permission for gradlew
       run: chmod +x endura/gradlew
 
