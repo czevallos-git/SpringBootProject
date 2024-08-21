@@ -14,7 +14,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String index(){
-        System.out.println("Rendering main page");
+        System.out.println("Sending index message to web browser");
         return "This is the main page of the app";
     }
 }
