@@ -43,10 +43,9 @@ jobs:
       working-directory: ./endura
       run: ./gradlew build --no-daemon
       
-
     - name: Run unit tests
       working-directory: ./endura
-      run: ./endura/gradlew test --no-daemon
+      run: ./gradlew test --no-daemon
 
   deploy:
     runs-on: ubuntu-latest
