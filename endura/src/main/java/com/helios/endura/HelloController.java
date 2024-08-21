@@ -11,4 +11,10 @@ public class HelloController {
         System.out.println("Sending Hello World to web browser");
         return "Hello, World!";
     }
+
+    @GetMapping("/")
+    public String index(){
+        System.out.println("Rendering main page");
+        return "This is the main page of the app";
+    }
 }
