@@ -3,6 +3,7 @@ package com.helios.endura;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class HelloController {
 
@@ -23,4 +24,10 @@ public class HelloController {
         System.out.println("Rendering about page");
         return "<h1>This is the about page</h1>";
     }
+
+    @GetMapping("/learn")
+    public String learn() {
+        return "<h1>Articles</h1>";
+    }
+    
 }
