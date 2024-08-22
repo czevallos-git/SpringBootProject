@@ -8,7 +8,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        System.out.println("Sending Hello World to web browser");
+        System.out.println("Render hello page");
         return "Hello, World!";
     }
 
