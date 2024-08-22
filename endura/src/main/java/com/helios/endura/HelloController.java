@@ -27,6 +27,7 @@ public class HelloController {
 
     @GetMapping("/learn")
     public String learn() {
+        System.out.println("Renderin learn page");
         return "<h1>Articles</h1>";
     }
     
