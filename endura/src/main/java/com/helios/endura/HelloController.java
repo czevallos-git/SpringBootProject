@@ -30,4 +30,9 @@ public class HelloController {
         System.out.println("Renderin learn page");
         return "<h1>Articles</h1>";
     }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "sign up";
+    }
 }
