@@ -13,37 +13,39 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<User> getUsers() {
-        return userRepository.findAll();
+        return userService.getUsers();
     }
 
     @PostMapping
     public User creatUser(@RequestBody User user) {
-        return userRepository.save(user);
+        return userService.creatUser(user);
     }
     
     @GetMapping("/{id}")
     public User getUser(@PathVariable Long id) {
-        return userRepository.findById(id).orElse(null);
+        return userService.getUser(id);
     }
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        user.setId(id);
-        return userRepository.save(user);
+        return userService.updateUser(id, user);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
-        userRepository.deleteById(id);
+        userService.deleteUser(id);
     }
 }
